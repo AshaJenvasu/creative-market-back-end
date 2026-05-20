@@ -1,0 +1,26 @@
+### สั่งเพิ่มสินค้าใหม่เข้า Database
+POST http://localhost:7777/api/products
+Content-Type: application/json
+
+{
+  "slug": "visual-art",
+  "category": "Visual Art",
+  "name": "Frieren: Beyond Journey's End",
+  "cartName": "Frieren: Beyond Journey's End",
+  "artist": "Starchaser",
+  "price": 300,
+  "tags": ["#Visual Art"],
+  "description": [
+    "Description ใช้สำหรับแสดงรายละเอียดสินค้า ข้อมูลทั่วไปของชิ้นงาน และจุดเด่นที่อยากให้ผู้ชมเข้าใจก่อนตัดสินใจซื้อ"
+  ],
+  "fromArtist": [
+    "Description ใช้สำหรับเล่าที่มาของชิ้นงาน แรงบันดาลใจ หรือมุมมองจาก artist"
+  ],
+  "images": [
+    "/images/visualArt1.png",
+    "/images/visualArt2.png",
+    "/images/visualArt3.png",
+    "/images/visualArt4.png"
+  ],
+  "isFeatured": true
+}
