@@ -1,0 +1,21 @@
+### เพิ่มสินค้าลงตะกร้า 
+POST http://localhost:7777/api/cart/add
+Content-Type: application/json
+
+{
+  "userId": "user_123",
+  "productId": "6a0d57f760d284590d602fa9", 
+  "quantity": 1
+}
+
+### เพิ่มสินค้าเดิม (ลองทดสอบดูว่า quantity มันบวกเพิ่มไหม)
+POST http://localhost:7777/api/cart/add
+Content-Type: application/json
+
+{
+  "userId": "user_123",
+  "productId": "6a0d57f760d284590d602fa9", 
+  "quantity": 2
+}
+#### ล้างตะกร้าทั้งหมด
+DELETE http://localhost:7777/api/cart/clear/user_123
