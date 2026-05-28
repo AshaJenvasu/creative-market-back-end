@@ -1,9 +1,19 @@
-import express from "express";
 import { Router } from "express";
-import { addItemToCart } from "../modules/cart/cart.controller.js";
-import { clearCart } from "../modules/cart/cart.controller.js";
+import {
+  addItemToCart,
+  clearCart,
+  getCart,
+  updateCartItem,
+  removeCartItem,
+} from "../modules/cart/cart.controller.js";
 
 export const router = Router();
 
+router.get("/", getCart);
 router.post("/add", addItemToCart);
-router.delete("/clear/:userId", clearCart);
+router.put("/update", updateCartItem);
+router.delete("/remove/:productId", removeCartItem);
+router.delete("/clear", clearCart);
+
+
+////อย่าลืมเอา midleware ที่พี่ตีทำมัน คั่นตรงนี้ด้วยครับ
