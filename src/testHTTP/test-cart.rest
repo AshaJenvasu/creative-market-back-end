@@ -1,38 +1,40 @@
-<<<<<<<<< Temporary merge branch 1
-### ดูตะกร้าของ user
-GET http://localhost:7777/api/cart/user_123
-=========
-### หมายเหตุ: ทุก Request ต้องมีการ Login ก่อนเพื่อให้มี Cookie ส่งไป
-### (หรือถ้ายังไม่มีระบบ Login ให้เพื่อนช่วยทำ Middleware จำลอง req.user มาให้ก่อน)
+### 1. Login ก่อนเพื่อรับ Cookie (สำหรับ User)
+# @name login
+POST http://localhost:7777/api/auth/login
+Content-Type: application/json
 
-### ดึงข้อมูลตะกร้า
+{
+  "email": "admintest2@example.com",
+  "password": "password1234"
+}
+
+### ------------------------------------------------------------
+### หมายเหตุ: Request ด้านล่างนี้จะทำงานได้เมื่อมี Cookie จาก Login สำเร็จเท่านั้น
+### ------------------------------------------------------------
+
+### 2. ดูตะกร้าสินค้า (Get Cart)
 GET http://localhost:7777/api/cart/
->>>>>>>>> Temporary merge branch 2
 
-### เพิ่มสินค้าลงตะกร้า 
+### 3. เพิ่มสินค้าลงตะกร้า (Add Item)
 POST http://localhost:7777/api/cart/add
 Content-Type: application/json
 
 {
-  "userId": "user_123",
-  "productId": "6a17c381d7b9296b299277da", 
-=========
-  "productId": "6a0d57f760d284590d602fa9", 
->>>>>>>>> Temporary merge branch 2
+  "productId": "6a1685fc96d193295d2a496a", 
   "quantity": 1
 }
 
-### อัปเดตจำนวนสินค้า
+### 4. อัปเดตจำนวนสินค้า (Update Item)
 PUT http://localhost:7777/api/cart/update
 Content-Type: application/json
 
 {
-  "productId": "6a0d57f760d284590d602fa9", 
-  "quantity": 5
+  "productId": "6a1685fc96d193295d2a496a", 
+  "quantity": 3
 }
 
-### ลบสินค้า 1 ชิ้นออกจากตะกร้า
-DELETE http://localhost:7777/api/cart/remove/6a0d57f760d284590d602fa9
+### 5. ลบสินค้า 1 ชิ้นออกจากตะกร้า (Remove Item)
+DELETE http://localhost:7777/api/cart/remove/6a1685fc96d193295d2a496a
 
-### ล้างตะกร้าทั้งหมด
+### 6. ล้างตะกร้าทั้งหมด (Clear Cart)
 DELETE http://localhost:7777/api/cart/clear
