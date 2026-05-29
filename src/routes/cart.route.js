@@ -8,16 +8,13 @@ import {
   removeCartItem,
 } from "../modules/cart/cart.controller.js";
 
-
 export const router = Router();
 
 router.get("/", getCart);
 router.post("/add", addItemToCart);
-
 router.put("/update", updateCartItem);
 router.delete("/remove/:productId", removeCartItem);
 router.delete("/clear", clearCart);
 
 
-////อย่าลืมเอา midleware ที่พี่ตีทำมัน คั่นตรงนี้ด้วยครับ
 
